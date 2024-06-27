@@ -1,0 +1,27 @@
+.theme-switcher {
+	border-radius: 100px;
+	width: 48px;
+	height: 28px;
+	background-color: #e8e8ea;
+	padding: 2px;
+	transition: background-color 0.3s ease-in-out;
+	position: relative;
+	&__radio {
+		border-radius: 100px;
+		padding: 5px;
+		width: 24px;
+		height: 24px;
+		box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.12);
+		background: #fff;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: all 0.3s ease-in-out;
+	}
+	&.dark {
+		background-color: #4b6bfb;
+		.theme-switcher__radio {
+			transform: translate3d(20px, 0, 0);
+		}
+	}
+}
