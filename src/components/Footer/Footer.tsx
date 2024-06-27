@@ -22,13 +22,13 @@ const Footer: FC = () => {
 						</p>
 						<div className='footer__contacts'>
 							<div className='footer__item'>
-								<span>Email :</span>{' '}
+								<span>Почта :</span>{' '}
 								<a href='mailto:info@jstemplate.net'>
 									info@template.net
 								</a>
 							</div>
 							<div className='footer__item'>
-								<span>Phone :</span>{' '}
+								<span>Телефон :</span>{' '}
 								<a href='tel:+880123456789'>880 123 456 789</a>
 							</div>
 						</div>
@@ -75,7 +75,7 @@ const Footer: FC = () => {
 								Meta<span>Blog</span>
 							</div>
 							<div className='footer__copiright'>
-								© 2024. All Rights Reserved.
+								© 2024. Все права защищены.
 							</div>
 						</div>
 					</div>

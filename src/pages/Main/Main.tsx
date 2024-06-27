@@ -26,7 +26,7 @@ function Main() {
 				)}
 			</Section>
 			<Section>
-				<SectionTitle title='Latest post' />
+				<SectionTitle title='Свежие посты' />
 				<Catalog posts={remainingPosts} isLoading={isLoading} />
 				<div className='main-action'>
 					<ButtonLink to='posts'>Все посты</ButtonLink>
