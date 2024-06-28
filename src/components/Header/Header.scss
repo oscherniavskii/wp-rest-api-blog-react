@@ -64,8 +64,8 @@
 		font-size: 18px;
 		line-height: 150%;
 		font-weight: 600;
-		transition: color 0.3s ease-in-out;
 		a {
+			transition: color 0.3s ease;
 			&:hover {
 				color: var(--accent-color);
 			}
