@@ -6,11 +6,12 @@ import {
 	SectionTitle
 } from '../../components';
 import { LoaderBigCard } from '../../components/loaders';
+import { POSTS_PER_PAGE } from '../../constants';
 import { usePostCards } from '../../hooks/usePostCards';
 import './Main.scss';
 
 function Main() {
-	const { data, isLoading } = usePostCards('?per_page=10');
+	const { data, isLoading } = usePostCards(`?per_page=${POSTS_PER_PAGE + 1}`);
 
 	const posts = data ? [...data] : [];
 	const firstPost = posts.length > 0 ? posts[0] : undefined;
