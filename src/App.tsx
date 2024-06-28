@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { type FC } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Footer, Header } from './components';
+import { Footer, Header, ScrollToTop } from './components';
 import { Main, PostArchive } from './pages';
 import { ThemeProvider } from './providers/ThemeContext';
 
@@ -12,6 +12,7 @@ const App: FC = () => {
 		<QueryClientProvider client={queryClient}>
 			<ThemeProvider>
 				<BrowserRouter>
+					<ScrollToTop />
 					<Header />
 					<main>
 						<Routes>

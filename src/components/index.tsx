@@ -11,6 +11,7 @@ import PostCardBig from './PostCardBig/PostCardBig';
 import PostCardSmall from './PostCardSmall/PostCardSmall';
 import PostInfo from './PostInfo/PostInfo';
 import PostTitleBig from './PostTitleBig/PostTitleBig';
+import ScrollToTop from './ScrollToTop/ScrollToTop';
 import Section from './Section/Section';
 import SectionTitle from './SectionTitle/SectionTitle';
 import ThemeSwitcher from './ThemeSwitcher/ThemeSwitcher';
@@ -29,6 +30,7 @@ export {
 	PostCardSmall,
 	PostInfo,
 	PostTitleBig,
+	ScrollToTop,
 	Section,
 	SectionTitle,
 	ThemeSwitcher
