@@ -7,12 +7,20 @@ import './PostCardBig.scss';
 
 interface PostCardBigProps {
 	postData: PostCard | undefined;
+	variant?: 'default' | 'oncover';
 }
 
-const PostCardBig: FC<PostCardBigProps> = ({ postData }) => {
+const PostCardBig: FC<PostCardBigProps> = ({
+	postData,
+	variant = 'default'
+}) => {
 	const { theme } = useTheme();
 	return (
-		<div className='post-card-big'>
+		<div
+			className={`post-card-big ${
+				variant === 'oncover' ? 'oncover' : ''
+			}`}
+		>
 			<div className='post-card-big__cover'>
 				<img src={postData?.image_url} alt={postData?.title} />
 				<div className={`post-card-big__card ${theme}`}>
@@ -23,7 +31,12 @@ const PostCardBig: FC<PostCardBigProps> = ({ postData }) => {
 						className='post-card-big__title'
 						to={`/posts/${postData?.slug}`}
 					>
-						<PostTitleBig title={postData?.title} />
+						<PostTitleBig
+							title={postData?.title}
+							variant={
+								variant === 'oncover' ? 'oncover' : 'default'
+							}
+						/>
 					</Link>
 					<div className='post-card-big__info'>
 						<PostInfo
@@ -31,6 +44,9 @@ const PostCardBig: FC<PostCardBigProps> = ({ postData }) => {
 							avatar={postData?.author_avatar}
 							date={postData?.date}
 							id={postData?.author}
+							variant={
+								variant === 'oncover' ? 'oncover' : 'default'
+							}
 						/>
 					</div>
 				</div>

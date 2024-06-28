@@ -11,9 +11,16 @@
 			object-fit: cover;
 			border-radius: 12px;
 		}
+		&::after {
+			content: '';
+			position: absolute;
+			inset: 0;
+			background-color: rgba(20, 22, 36, 0.4);
+		}
 	}
 	&__card {
 		position: absolute;
+		z-index: 1;
 		left: 64px;
 		bottom: -64px;
 		border: 1px solid var(--border-color);
@@ -37,8 +44,32 @@
 	&__title {
 		margin-bottom: 20px;
 		display: block;
+		transition: opacity 0.3s ease-in-out;
+		&:hover {
+			opacity: 0.6;
+		}
 	}
 	&__info {
+	}
+	&.oncover {
+		height: auto;
+		& .post-card-big__cover {
+			height: 450px;
+		}
+		& .post-card-big__card {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			border: none;
+			padding: 40px;
+			box-shadow: none;
+			background-color: transparent;
+			max-width: 720px;
+			&.dark {
+				background-color: transparent;
+				border: none;
+			}
+		}
 	}
 }
 @media screen and (max-width: 1200px) {
@@ -50,6 +81,11 @@
 		&__card {
 			left: 20px;
 			bottom: -40px;
+		}
+		&.oncover {
+			& .post-card-big__cover {
+				height: 400px;
+			}
 		}
 	}
 }
@@ -67,6 +103,14 @@
 		}
 		&__title {
 			margin-bottom: 20px;
+		}
+		&.oncover {
+			& .post-card-big__cover {
+				height: 360px;
+			}
+			& .post-card-big__card {
+				padding: 40px 30px;
+			}
 		}
 	}
 }
@@ -89,6 +133,14 @@
 		&__title {
 			margin-bottom: 16px;
 		}
+		&.oncover {
+			& .post-card-big__cover {
+				height: 320px;
+			}
+			& .post-card-big__card {
+				padding: 30px 20px;
+			}
+		}
 	}
 }
 
@@ -105,6 +157,14 @@
 		}
 		&__title {
 			margin-bottom: 10px;
+		}
+		&.oncover {
+			& .post-card-big__cover {
+				height: 260px;
+			}
+			& .post-card-big__card {
+				padding: 20px 16px;
+			}
 		}
 	}
 }

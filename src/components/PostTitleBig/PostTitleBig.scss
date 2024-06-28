@@ -3,6 +3,9 @@
 	font-size: 30px;
 	line-height: 1.2;
 	transition: color 0.3s ease;
+	&.oncover {
+		color: var(--font-color-dark);
+	}
 }
 @media screen and (max-width: 768px) {
 	.post-title {

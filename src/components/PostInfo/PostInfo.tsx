@@ -7,11 +7,18 @@ interface PostInfoProps {
 	avatar: string | undefined;
 	date: string | undefined;
 	id: number | string | undefined;
+	variant?: 'default' | 'oncover';
 }
 
-const PostInfo: FC<PostInfoProps> = ({ name, avatar, date, id }) => {
+const PostInfo: FC<PostInfoProps> = ({
+	name,
+	avatar,
+	date,
+	id,
+	variant = 'default'
+}) => {
 	return (
-		<div className='post-info'>
+		<div className={`post-info ${variant === 'oncover' ? 'oncover' : ''}`}>
 			<Link className='post-info__author' to={`/users/${id}`}>
 				<div className='post-info__icon'>
 					<img src={avatar} alt={name} />
