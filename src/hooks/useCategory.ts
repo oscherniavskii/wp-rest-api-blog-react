@@ -1,18 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import { getCategoryBySlug } from '../services/category.services';
-import { Category } from '../types/category.types';
 
 export const useCategory = (slug: string) => {
-	const [category, setCategory] = useState<Category | undefined>(undefined);
-	const [isCategoryLoading, setIsCategoryLoading] = useState<boolean>(true);
+	const { data, isLoading } = useQuery({
+		queryKey: ['get category', slug],
+		queryFn: () => getCategoryBySlug(slug),
+		select: data => data
+	});
 
-	useEffect(() => {
-		setIsCategoryLoading(true);
-		getCategoryBySlug(slug)
-			.then(data => setCategory(data))
-			.finally(() => setIsCategoryLoading(false))
-			.catch(error => console.log(error));
-	}, [slug]);
-
-	return { category, isCategoryLoading };
+	return { data, isLoading };
 };

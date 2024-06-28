@@ -1,3 +1,4 @@
+import { useQuery } from '@tanstack/react-query';
 import { useEffect, useState, type FC } from 'react';
 import {
 	Breadcrumbs,
@@ -15,61 +16,70 @@ import './PostArchive.scss';
 
 const PostArchive: FC = () => {
 	const [offset, setOffset] = useState<number>(0);
-	const [isLoading, setIsLoading] = useState<boolean>(true);
 	const [allPosts, setAllPosts] = useState<PostCard[]>([]);
 	const [allPostsLoaded, setAllPostsLoaded] = useState<boolean>(false);
 	const [isMoreLoading, setIsMoreLoading] = useState<boolean>(false);
 
-	const firstPost = allPosts.length > 0 ? allPosts[0] : undefined;
-	const remainingPosts = allPosts.slice(1);
+	const currentPerPage = offset === 0 ? POSTS_PER_PAGE + 1 : POSTS_PER_PAGE;
+
+	const { data, isLoading, isSuccess } = useQuery({
+		queryKey: [
+			'get all post cards',
+			`?per_page=${currentPerPage}&offset=${offset}`
+		],
+		queryFn: () =>
+			getAllPostCards(`?per_page=${currentPerPage}&offset=${offset}`),
+		select: data => data,
+		refetchOnWindowFocus: false
+	});
+
+	const firstPost = allPosts && allPosts.length > 0 ? allPosts[0] : undefined;
+	const remainingPosts = allPosts ? allPosts.slice(1) : [];
 
 	useEffect(() => {
-		const currentPerPage =
-			offset === 0 ? POSTS_PER_PAGE + 1 : POSTS_PER_PAGE;
-		setIsMoreLoading(true);
-		getAllPostCards(`?per_page=${currentPerPage}&offset=${offset}`)
-			.then(data => {
-				if (data && data.length > 0) {
-					setAllPosts(prev => [...prev, ...data]);
-					if (data.length < currentPerPage) {
-						setAllPostsLoaded(true);
-					}
-				} else {
+		if (isSuccess) {
+			if (data && data.length > 0) {
+				setAllPosts(prev => [...prev, ...data]);
+				if (data.length < currentPerPage) {
 					setAllPostsLoaded(true);
 				}
-			})
-			.catch(error => console.log(error))
-			.finally(() => {
-				setIsLoading(false);
-				setIsMoreLoading(false);
-			});
-	}, [offset]);
+			} else {
+				setAllPostsLoaded(true);
+			}
+			setIsMoreLoading(false);
+		}
+	}, [isSuccess, offset]);
 
 	return (
 		<>
 			<Section vaiant='top'>
 				<PageTitle title='Все посты' />
 				<Breadcrumbs secondTitle='Все посты' />
-				{isLoading || !firstPost ? (
+				{isLoading && allPosts.length === 0 ? (
 					<LoaderBigCard />
 				) : (
 					<PostCardBig postData={firstPost} variant='oncover' />
 				)}
 			</Section>
 			<Section>
-				<Catalog posts={remainingPosts} isLoading={isLoading} />
+				<Catalog
+					posts={remainingPosts}
+					isLoading={isLoading && allPosts.length === 0}
+				/>
 				<div className='post-archive-action'>
 					{!allPostsLoaded && (
 						<ButtonLink
-							onClick={() =>
+							onClick={() => {
+								setIsMoreLoading(true);
 								setOffset(
 									prev =>
 										prev +
 										(offset === 0
 											? POSTS_PER_PAGE + 1
 											: POSTS_PER_PAGE)
-								)
-							}
+								);
+							}}
+							disabled={isMoreLoading}
 						>
 							{isMoreLoading ? 'Загружаем...' : 'Загрузить ещё'}
 						</ButtonLink>

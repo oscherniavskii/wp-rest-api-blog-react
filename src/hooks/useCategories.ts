@@ -1,21 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import { getAllCategories } from '../services/category.services';
-import { Category } from '../types/category.types';
 
 export const useCategories = () => {
-	const [categories, setCategories] = useState<Category[] | undefined>(
-		undefined
-	);
-	const [isCategoriesLoading, setIsCategoriesLoading] =
-		useState<boolean>(true);
+	const { data, isLoading } = useQuery({
+		queryKey: ['get categories'],
+		queryFn: () => getAllCategories(),
+		select: data => data
+	});
 
-	useEffect(() => {
-		setIsCategoriesLoading(true);
-		getAllCategories()
-			.then(data => setCategories(data))
-			.finally(() => setIsCategoriesLoading(false))
-			.catch(error => console.log(error));
-	}, []);
-
-	return { categories, isCategoriesLoading };
+	return { data, isLoading };
 };

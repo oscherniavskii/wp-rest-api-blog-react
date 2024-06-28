@@ -1,18 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import { getUserById } from '../services/user.services';
-import { User } from '../types/user.types';
 
 export const useSingleUser = (id: number) => {
-	const [user, setUser] = useState<User | undefined>(undefined);
-	const [isUserLoading, setIsUserLoading] = useState<boolean>(true);
+	const { data, isLoading } = useQuery({
+		queryKey: ['get single user', id],
+		queryFn: () => getUserById(id),
+		select: data => data
+	});
 
-	useEffect(() => {
-		setIsUserLoading(true);
-		getUserById(id)
-			.then(data => setUser(data))
-			.finally(() => setIsUserLoading(false))
-			.catch(error => console.log(error));
-	}, []);
-
-	return { user, isUserLoading };
+	return { data, isLoading };
 };

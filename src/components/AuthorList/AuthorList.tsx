@@ -5,14 +5,14 @@ import { LoaderList } from '../loaders';
 import './AuthorList.scss';
 
 const AuthorList: FC = () => {
-	const { users, isUsersLoading } = useUsers();
+	const { data, isLoading } = useUsers();
 
-	if (isUsersLoading || !users) return <LoaderList />;
+	if (isLoading || !data) return <LoaderList />;
 
 	return (
 		<ul className='author-list'>
-			{users &&
-				users.map(item => (
+			{data &&
+				data.map(item => (
 					<li key={item.id}>
 						<Link to={`/users/${item.id}`}>{item.name}</Link>
 					</li>
