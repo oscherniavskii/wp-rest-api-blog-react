@@ -75,7 +75,7 @@ const Footer: FC = () => {
 						</Link>
 						<div className='footer__block'>
 							<div className='footer__logo-text'>
-								Meta<span>Blog</span>
+								<span>Blog</span>
 							</div>
 							<div className='footer__copiright'>
 								© 2024. Все права защищены.
