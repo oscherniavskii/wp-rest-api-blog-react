@@ -10,7 +10,7 @@ const LoaderCategory: FC = () => {
 
 	return (
 		<ContentLoader
-			speed={5}
+			speed={2}
 			width={'100%'}
 			height={'100%'}
 			viewBox='0 0 380 100'
