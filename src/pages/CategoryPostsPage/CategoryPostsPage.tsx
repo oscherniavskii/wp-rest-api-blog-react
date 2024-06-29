@@ -6,6 +6,7 @@ import {
 	ButtonLink,
 	Catalog,
 	PageTitle,
+	PostsNotFound,
 	Section
 } from '../../components';
 import { useCategory } from '../../hooks/useCategory';
@@ -15,6 +16,7 @@ const CategoryPostsPage: FC = () => {
 	const { slug } = useParams();
 	const { data, isLoading } = usePostCardsByCategory(slug);
 	const { data: category } = useCategory(slug);
+	console.log(data);
 
 	return (
 		<>
@@ -25,7 +27,11 @@ const CategoryPostsPage: FC = () => {
 					secondLink='/categories'
 					thirdTitle={category?.name}
 				/>
-				<Catalog posts={data} isLoading={isLoading} />
+				{data && data?.length === 0 ? (
+					<PostsNotFound />
+				) : (
+					<Catalog posts={data} isLoading={isLoading} />
+				)}
 				<div className='button-block'>
 					<ButtonLink to='/posts'>Все посты</ButtonLink>
 				</div>

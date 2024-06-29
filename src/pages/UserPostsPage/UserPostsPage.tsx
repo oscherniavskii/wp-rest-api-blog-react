@@ -5,6 +5,7 @@ import {
 	AuthorInfo,
 	ButtonLink,
 	Catalog,
+	PostsNotFound,
 	Section,
 	SectionTitle
 } from '../../components';
@@ -22,7 +23,11 @@ const UserPostsPage: FC = () => {
 			<Section vaiant='top'>
 				{!!user && <AuthorInfo user={user} isLoading={isUserLoading} />}
 				<SectionTitle title='Посты автора' />
-				<Catalog posts={data} isLoading={isLoading} />
+				{data && data?.length === 0 ? (
+					<PostsNotFound />
+				) : (
+					<Catalog posts={data} isLoading={isLoading} />
+				)}
 				<div className='button-block'>
 					<ButtonLink to='/posts'>Все посты</ButtonLink>
 				</div>

@@ -14,6 +14,7 @@ import PostCardBig from './PostCardBig/PostCardBig';
 import PostCardSmall from './PostCardSmall/PostCardSmall';
 import PostInfo from './PostInfo/PostInfo';
 import PostTitleBig from './PostTitleBig/PostTitleBig';
+import PostsNotFound from './PostsNotFound/PostsNotFound';
 import ScrollToTop from './ScrollToTop/ScrollToTop';
 import Section from './Section/Section';
 import SectionTitle from './SectionTitle/SectionTitle';
@@ -36,6 +37,7 @@ export {
 	PostCardSmall,
 	PostInfo,
 	PostTitleBig,
+	PostsNotFound,
 	ScrollToTop,
 	Section,
 	SectionTitle,
