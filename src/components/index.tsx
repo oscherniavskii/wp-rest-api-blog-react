@@ -3,6 +3,7 @@ import Breadcrumbs from './Breadcrumbs/Breadcrumbs';
 import ButtonLink from './ButtonLink/ButtonLink';
 import Catalog from './Catalog/Catalog';
 import Categories from './Categories/Categories';
+import CategoryItem from './CategoryItem/CategoryItem';
 import CategoryList from './CategoryList/CategoryList';
 import Footer from './Footer/Footer';
 import Header from './Header/Header';
@@ -22,6 +23,7 @@ export {
 	ButtonLink,
 	Catalog,
 	Categories,
+	CategoryItem,
 	CategoryList,
 	Footer,
 	Header,
