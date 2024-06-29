@@ -1,0 +1,25 @@
+import { type FC } from 'react';
+import ContentLoader from 'react-content-loader';
+import { useTheme } from '../../hooks/useTheme';
+
+const LoaderCategory: FC = () => {
+	const { theme } = useTheme();
+	const bgColor =
+		theme === 'dark' ? 'var(--bg-color-dark)' : 'var(--bg-color)';
+	const fgColor = theme === 'dark' ? '#5f5f5f' : '#c9c9c9';
+
+	return (
+		<ContentLoader
+			speed={5}
+			width={'100%'}
+			height={'100%'}
+			viewBox='0 0 380 100'
+			backgroundColor={bgColor}
+			foregroundColor={fgColor}
+		>
+			<rect x='10' y='10' rx='16' ry='16' width='360' height='90' />
+		</ContentLoader>
+	);
+};
+
+export default LoaderCategory;
