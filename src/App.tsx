@@ -6,6 +6,7 @@ import {
 	CategoriesPage,
 	CategoryPostsPage,
 	MainPage,
+	NotFoundPage,
 	PostArchive,
 	UserPostsPage,
 	UsersPage
@@ -38,6 +39,7 @@ const App: FC = () => {
 								path='/users/:id'
 								element={<UserPostsPage />}
 							/>
+							<Route path='*' element={<NotFoundPage />} />
 						</Routes>
 					</main>
 					<Footer />
