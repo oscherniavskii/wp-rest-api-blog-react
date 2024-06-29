@@ -1,5 +1,5 @@
 import { type FC } from 'react';
-import { Link } from 'react-router-dom';
+import AuthorCard from '../AuthorCard/AuthorCard';
 import './PostInfo.scss';
 
 interface PostInfoProps {
@@ -19,12 +19,7 @@ const PostInfo: FC<PostInfoProps> = ({
 }) => {
 	return (
 		<div className={`post-info ${variant === 'oncover' ? 'oncover' : ''}`}>
-			<Link className='post-info__author' to={`/users/${id}`}>
-				<div className='post-info__icon'>
-					<img src={avatar} alt={name} />
-				</div>
-				<div className='post-info__name'>{name}</div>
-			</Link>
+			<AuthorCard name={name} avatar={avatar} id={id} />
 			<div className='post-info__date'>{date}</div>
 		</div>
 	);
