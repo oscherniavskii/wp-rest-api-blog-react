@@ -2,7 +2,12 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { type FC } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Footer, Header, ScrollToTop } from './components';
-import { CategoriesPage, MainPage, PostArchive } from './pages';
+import {
+	CategoriesPage,
+	CategoryPostsPage,
+	MainPage,
+	PostArchive
+} from './pages';
 import { ThemeProvider } from './providers/ThemeContext';
 
 const queryClient = new QueryClient();
@@ -21,6 +26,10 @@ const App: FC = () => {
 							<Route
 								path='/categories'
 								element={<CategoriesPage />}
+							/>
+							<Route
+								path='/categories/:slug'
+								element={<CategoryPostsPage />}
 							/>
 						</Routes>
 					</main>
