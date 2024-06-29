@@ -12,13 +12,15 @@ export const getAllCategories = async (): Promise<Category[] | undefined> => {
 };
 
 export const getCategoryBySlug = async (
-	slug: string
+	slug: string | undefined
 ): Promise<Category | undefined> => {
-	try {
-		const response = await fetch(`${CUSTOM_POST_URL}/category/${slug}`);
-		const data = response.json();
-		return data;
-	} catch (error) {
-		console.log(error);
+	if (slug) {
+		try {
+			const response = await fetch(`${CUSTOM_POST_URL}/category/${slug}`);
+			const data = response.json();
+			return data;
+		} catch (error) {
+			console.log(error);
+		}
 	}
 };

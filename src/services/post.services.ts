@@ -14,39 +14,45 @@ export const getAllPostCards = async (
 };
 
 export const getPostCardsByCategorySlug = async (
-	slug: string
+	slug: string | undefined
 ): Promise<PostCard[] | undefined> => {
-	try {
-		const response = await fetch(
-			`${CUSTOM_POST_URL}/category/${slug}/posts`
-		);
-		const data = response.json();
-		return data;
-	} catch (error) {
-		console.log(error);
+	if (slug) {
+		try {
+			const response = await fetch(
+				`${CUSTOM_POST_URL}/category/${slug}/posts`
+			);
+			const data = response.json();
+			return data;
+		} catch (error) {
+			console.log(error);
+		}
 	}
 };
 
 export const getPostCardsByUserId = async (
-	id: number
+	id: number | undefined
 ): Promise<PostCard[] | undefined> => {
-	try {
-		const response = await fetch(`${CUSTOM_POST_URL}/user/${id}/posts`);
-		const data = response.json();
-		return data;
-	} catch (error) {
-		console.log(error);
+	if (id) {
+		try {
+			const response = await fetch(`${CUSTOM_POST_URL}/user/${id}/posts`);
+			const data = response.json();
+			return data;
+		} catch (error) {
+			console.log(error);
+		}
 	}
 };
 
 export const getPostBySlug = async (
-	slug: string
+	slug: string | undefined
 ): Promise<SinglePost | undefined> => {
-	try {
-		const response = await fetch(`${CUSTOM_POST_URL}/post/${slug}`);
-		const data = response.json();
-		return data;
-	} catch (error) {
-		console.log(error);
+	if (slug) {
+		try {
+			const response = await fetch(`${CUSTOM_POST_URL}/post/${slug}`);
+			const data = response.json();
+			return data;
+		} catch (error) {
+			console.log(error);
+		}
 	}
 };
