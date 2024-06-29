@@ -12,7 +12,6 @@ import { LoaderBigCard } from '../../components/loaders';
 import { POSTS_PER_PAGE } from '../../constants';
 import { getAllPostCards } from '../../services/post.services';
 import { PostCard } from '../../types/post.types';
-import './PostArchive.scss';
 
 const PostArchive: FC = () => {
 	const [offset, setOffset] = useState<number>(0);
@@ -66,7 +65,7 @@ const PostArchive: FC = () => {
 					posts={remainingPosts}
 					isLoading={isLoading && allPosts.length === 0}
 				/>
-				<div className='post-archive-action'>
+				<div className='button-block'>
 					{!allPostsLoaded && (
 						<ButtonLink
 							onClick={() => {

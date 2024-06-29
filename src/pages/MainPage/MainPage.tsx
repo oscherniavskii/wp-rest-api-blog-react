@@ -8,7 +8,6 @@ import {
 import { LoaderBigCard } from '../../components/loaders';
 import { POSTS_PER_PAGE } from '../../constants';
 import { usePostCards } from '../../hooks/usePostCards';
-import './MainPage.scss';
 
 function MainPage() {
 	const { data, isLoading } = usePostCards(`?per_page=${POSTS_PER_PAGE + 1}`);
@@ -29,7 +28,7 @@ function MainPage() {
 			<Section>
 				<SectionTitle title='Свежие посты' />
 				<Catalog posts={remainingPosts} isLoading={isLoading} />
-				<div className='main-action'>
+				<div className='button-block'>
 					<ButtonLink to='posts'>Все посты</ButtonLink>
 				</div>
 			</Section>

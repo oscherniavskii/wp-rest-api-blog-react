@@ -42,7 +42,7 @@ const CategoriesPage: FC = () => {
 					isLoading={isPostsLoading}
 					preloader='short'
 				/>
-				<div className='main-action'>
+				<div className='button-block'>
 					<ButtonLink to='/posts'>Все посты</ButtonLink>
 				</div>
 			</Section>

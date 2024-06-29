@@ -10,7 +10,6 @@ import {
 } from '../../components';
 import { useCategory } from '../../hooks/useCategory';
 import { usePostCardsByCategory } from '../../hooks/usePostCardsByCategory';
-import './CategoryPostsPage.scss';
 
 const CategoryPostsPage: FC = () => {
 	const { slug } = useParams();
@@ -27,7 +26,7 @@ const CategoryPostsPage: FC = () => {
 					thirdTitle={category?.name}
 				/>
 				<Catalog posts={data} isLoading={isLoading} />
-				<div className='main-action'>
+				<div className='button-block'>
 					<ButtonLink to='/posts'>Все посты</ButtonLink>
 				</div>
 			</Section>
