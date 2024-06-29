@@ -17,7 +17,7 @@ const Categories: FC<CategoriesProps> = ({
 
 	const categoriesList =
 		categories?.map(item => (
-			<Link to={`/category/${item.slug}`} key={item.id}>
+			<Link to={`/categories/${item.slug}`} key={item.id}>
 				{item.name}
 			</Link>
 		)) || undefined;

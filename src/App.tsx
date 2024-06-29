@@ -2,7 +2,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { type FC } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Footer, Header, ScrollToTop } from './components';
-import { MainPage, PostArchive } from './pages';
+import { CategoriesPage, MainPage, PostArchive } from './pages';
 import { ThemeProvider } from './providers/ThemeContext';
 
 const queryClient = new QueryClient();
@@ -18,6 +18,10 @@ const App: FC = () => {
 						<Routes>
 							<Route path='/' element={<MainPage />} />
 							<Route path='/posts' element={<PostArchive />} />
+							<Route
+								path='/categories'
+								element={<CategoriesPage />}
+							/>
 						</Routes>
 					</main>
 					<Footer />

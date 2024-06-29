@@ -53,6 +53,17 @@ const Header: FC = () => {
 										Все посты
 									</NavLink>
 								</li>
+								<li className='menu__item'>
+									<NavLink
+										to='categories'
+										className={({ isActive }) =>
+											isActive ? 'active' : ''
+										}
+										onClick={() => setIsMenuOpen(false)}
+									>
+										Категории
+									</NavLink>
+								</li>
 							</ul>
 						</nav>
 						<div className='header__switcher'>

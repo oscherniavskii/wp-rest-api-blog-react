@@ -14,7 +14,7 @@ const CategoryList: FC = () => {
 			{data &&
 				data.map(item => (
 					<li key={item.id}>
-						<Link to={`/category/${item.slug}`}>{item.name}</Link>
+						<Link to={`/categories/${item.slug}`}>{item.name}</Link>
 					</li>
 				))}
 		</ul>

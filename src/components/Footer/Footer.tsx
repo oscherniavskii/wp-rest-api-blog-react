@@ -43,6 +43,9 @@ const Footer: FC = () => {
 								<li className='footer__link'>
 									<Link to='posts'>Все посты</Link>
 								</li>
+								<li className='footer__link'>
+									<Link to='categories'>Категории</Link>
+								</li>
 							</ul>
 						</nav>
 					</div>
