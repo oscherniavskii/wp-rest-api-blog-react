@@ -1,4 +1,5 @@
 import AuthorCard from './AuthorCard/AuthorCard';
+import AuthorInfo from './AuthorInfo/AuthorInfo';
 import AuthorList from './AuthorList/AuthorList';
 import Breadcrumbs from './Breadcrumbs/Breadcrumbs';
 import ButtonLink from './ButtonLink/ButtonLink';
@@ -20,6 +21,7 @@ import ThemeSwitcher from './ThemeSwitcher/ThemeSwitcher';
 
 export {
 	AuthorCard,
+	AuthorInfo,
 	AuthorList,
 	Breadcrumbs,
 	ButtonLink,

@@ -7,6 +7,7 @@ import {
 	CategoryPostsPage,
 	MainPage,
 	PostArchive,
+	UserPostsPage,
 	UsersPage
 } from './pages';
 import { ThemeProvider } from './providers/ThemeContext';
@@ -33,6 +34,10 @@ const App: FC = () => {
 								element={<CategoryPostsPage />}
 							/>
 							<Route path='/users' element={<UsersPage />} />
+							<Route
+								path='/users/:id'
+								element={<UserPostsPage />}
+							/>
 						</Routes>
 					</main>
 					<Footer />
