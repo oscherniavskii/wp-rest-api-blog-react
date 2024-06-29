@@ -27,7 +27,7 @@
 	}
 	&__logo {
 		display: block;
-		width: 158px;
+		width: 100px;
 		height: 36px;
 		flex-shrink: 0;
 		position: relative;
@@ -80,10 +80,6 @@
 	.header {
 		padding-top: 16px;
 		padding-bottom: 16px;
-		&__logo {
-			width: 130px;
-			height: 30px;
-		}
 		&__menu {
 			margin-right: 60px;
 		}
@@ -103,7 +99,8 @@
 		padding-top: 12px;
 		padding-bottom: 12px;
 		&__logo {
-			width: 120px;
+			width: 80px;
+			height: 30px;
 		}
 		&__icon {
 			position: relative;
