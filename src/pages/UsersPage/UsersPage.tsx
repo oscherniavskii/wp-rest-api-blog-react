@@ -36,7 +36,7 @@ const UsersPage: FC = () => {
 								key={item.id}
 							>
 								<AuthorCard
-									avatar={item.avatar_url}
+									avatar={item.author_avatar}
 									id={item.id}
 									name={item.name}
 								/>
