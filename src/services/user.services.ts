@@ -12,7 +12,7 @@ export const getAllUsers = async (): Promise<User[] | undefined> => {
 };
 
 export const getUserById = async (
-	id: number | undefined
+	id: number | string | undefined
 ): Promise<User | undefined> => {
 	if (id) {
 		try {

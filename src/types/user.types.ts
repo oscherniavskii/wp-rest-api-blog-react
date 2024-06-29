@@ -3,6 +3,6 @@ export interface User {
 	name: string;
 	description: string;
 	slug: string;
-	avatar_url: string;
+	author_avatar: string;
 	role: string;
 }

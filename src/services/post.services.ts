@@ -30,7 +30,7 @@ export const getPostCardsByCategorySlug = async (
 };
 
 export const getPostCardsByUserId = async (
-	id: number | undefined
+	id: number | string | undefined
 ): Promise<PostCard[] | undefined> => {
 	if (id) {
 		try {
