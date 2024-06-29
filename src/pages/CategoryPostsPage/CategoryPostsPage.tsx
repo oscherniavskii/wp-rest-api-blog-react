@@ -16,7 +16,6 @@ const CategoryPostsPage: FC = () => {
 	const { slug } = useParams();
 	const { data, isLoading } = usePostCardsByCategory(slug);
 	const { data: category } = useCategory(slug);
-	console.log(data);
 
 	return (
 		<>
