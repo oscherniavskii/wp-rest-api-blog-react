@@ -8,9 +8,9 @@ import {
 import { LoaderBigCard } from '../../components/loaders';
 import { POSTS_PER_PAGE } from '../../constants';
 import { usePostCards } from '../../hooks/usePostCards';
-import './Main.scss';
+import './MainPage.scss';
 
-function Main() {
+function MainPage() {
 	const { data, isLoading } = usePostCards(`?per_page=${POSTS_PER_PAGE + 1}`);
 
 	const posts = data ? [...data] : [];
@@ -37,4 +37,4 @@ function Main() {
 	);
 }
 
-export default Main;
+export default MainPage;
