@@ -44,7 +44,7 @@ const Header: FC = () => {
 								</li>
 								<li className='menu__item'>
 									<NavLink
-										to='posts'
+										to='/posts'
 										className={({ isActive }) =>
 											isActive ? 'active' : ''
 										}
@@ -55,13 +55,24 @@ const Header: FC = () => {
 								</li>
 								<li className='menu__item'>
 									<NavLink
-										to='categories'
+										to='/categories'
 										className={({ isActive }) =>
 											isActive ? 'active' : ''
 										}
 										onClick={() => setIsMenuOpen(false)}
 									>
 										Категории
+									</NavLink>
+								</li>
+								<li className='menu__item'>
+									<NavLink
+										to='/users'
+										className={({ isActive }) =>
+											isActive ? 'active' : ''
+										}
+										onClick={() => setIsMenuOpen(false)}
+									>
+										Авторы
 									</NavLink>
 								</li>
 							</ul>
