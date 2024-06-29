@@ -19,10 +19,11 @@ export interface SinglePost {
 	title: string;
 	categories: Category[];
 	author_name: string;
-	author: string;
 	content: string;
-	date_created: string;
-	date_modified: string;
+	date: string;
+	dmodified: string;
 	image_url: string;
 	author_avatar: string;
+	author_id: number;
+	slug: string;
 }

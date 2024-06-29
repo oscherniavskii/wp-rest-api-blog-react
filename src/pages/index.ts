@@ -3,6 +3,7 @@ import CategoryPostsPage from './CategoryPostsPage/CategoryPostsPage';
 import MainPage from './MainPage/MainPage';
 import NotFoundPage from './NotFoundPage/NotFoundPage';
 import PostArchive from './PostArchive/PostArchive';
+import SinglePost from './SinglePost/SinglePost';
 import UserPostsPage from './UserPostsPage/UserPostsPage';
 import UsersPage from './UsersPage/UsersPage';
 
@@ -12,6 +13,7 @@ export {
 	MainPage,
 	NotFoundPage,
 	PostArchive,
+	SinglePost,
 	UserPostsPage,
 	UsersPage
 };

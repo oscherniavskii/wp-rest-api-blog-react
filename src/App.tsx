@@ -8,6 +8,7 @@ import {
 	MainPage,
 	NotFoundPage,
 	PostArchive,
+	SinglePost,
 	UserPostsPage,
 	UsersPage
 } from './pages';
@@ -26,6 +27,10 @@ const App: FC = () => {
 						<Routes>
 							<Route path='/' element={<MainPage />} />
 							<Route path='/posts' element={<PostArchive />} />
+							<Route
+								path='/posts/:slug'
+								element={<SinglePost />}
+							/>
 							<Route
 								path='/categories'
 								element={<CategoriesPage />}
