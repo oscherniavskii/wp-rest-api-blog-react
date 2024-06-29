@@ -4,18 +4,14 @@ import { useTheme } from '../../hooks/useTheme';
 import { type PostCard } from '../../types/post.types';
 import Categories from '../Categories/Categories';
 import PostInfo from '../PostInfo/PostInfo';
-import { LoaderPostCard } from '../loaders';
 import './PostCardSmall.scss';
 
 interface PostCardProps {
 	postData: PostCard;
-	isLoading: boolean;
 }
 
-const PostCardSmall: FC<PostCardProps> = ({ postData, isLoading }) => {
+const PostCardSmall: FC<PostCardProps> = ({ postData }) => {
 	const { theme } = useTheme();
-
-	if (isLoading) return <LoaderPostCard />;
 
 	return (
 		<div className={`post-card ${theme}`}>

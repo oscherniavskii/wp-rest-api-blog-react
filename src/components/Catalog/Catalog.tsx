@@ -16,11 +16,7 @@ const Catalog: FC<CatalogProps> = ({ posts, isLoading }) => {
 				<LoaderCatalog />
 			) : (
 				posts?.map((item: PostCard) => (
-					<PostCardSmall
-						key={item.id}
-						postData={item}
-						isLoading={isLoading}
-					/>
+					<PostCardSmall key={item.id} postData={item} />
 				))
 			)}
 		</div>
